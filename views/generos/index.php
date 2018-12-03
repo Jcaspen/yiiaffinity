@@ -5,6 +5,7 @@ use yii\helpers\Html;
     <table class="table table-striped">
         <thead>
             <th>Género</th>
+            <th>Acciones</th>
         </thead>
         <tbody>
             <?php foreach ($filas as $fila): ?>
