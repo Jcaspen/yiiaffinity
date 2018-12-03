@@ -28,6 +28,7 @@ class GenerosController extends \yii\web\Controller
             Yii::$app->db->createCommand()
                 ->insert('generos', $generosForm->attributes)
                 ->execute();
+            Yii::$app->session->setFlash('success', 'Fila insertada correctamente.');
             return $this->redirect(['generos/index']);
         }
         return $this->render('create', [

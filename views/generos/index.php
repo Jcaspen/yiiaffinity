@@ -1,5 +1,7 @@
 <?php
 use yii\helpers\Html;
+
+$this->title ='Géneros';
 ?>
 <div class="row">
     <table class="table table-striped">
