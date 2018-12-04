@@ -13,6 +13,7 @@ class GenerosForm extends Model
     {
         return [
             [['genero'], 'required'],
+            [['genero'], 'trim'],
             [['genero'], 'string', 'max' => 255],
             // ------Validación in line
             [['genero'], function ($attribute, $params, $validator) {

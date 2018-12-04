@@ -17,7 +17,8 @@ class PeliculasController extends \yii\web\Controller
             ->createCommand('SELECT * ,g.genero
                                FROM peliculas p
                                JOIN generos g
-                                 ON p.genero_id = g.id')->queryAll();
+                                 ON p.genero_id = g.id
+                           ORDER BY p.titulo')->queryAll();
         return $this->render('index', [
             'filas' => $filas,
         ]);
