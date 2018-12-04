@@ -7,7 +7,7 @@ use Yii;
 use yii\web\NotFoundHttpException;
 
 /**
- * Definición del controlador peliculas.
+ * Definición del controlador Géneros.
  */
 class GenerosController extends \yii\web\Controller
 {
@@ -55,7 +55,18 @@ class GenerosController extends \yii\web\Controller
 
     public function actionDelete($id)
     {
-        Yii::$app->db->createCommand()->delete('generos', ['id' => $id])->execute();
+        if (Yii::$app->db
+            ->createCommand('SELECT id
+                               FROM peliculas
+                              WHERE genero_id = :id
+                              LIMIT 1', [':id' => $id])
+            ->queryOne() != false) {
+            Yii::$app->session->setFlash('error', 'el género esta siendo usado.');
+        // return $this->redirect(['generos/index']);
+        } else {
+            Yii::$app->db->createCommand()->delete('generos', ['id' => $id])->execute();
+            Yii::$app->session->setFlash('success', 'Género borrado correctamente');
+        }
         return $this->redirect(['generos/index']);
     }
 
@@ -75,7 +86,7 @@ class GenerosController extends \yii\web\Controller
             ->createCommand('SELECT *
                                FROM generos
                               WHERE id = :id', [':id' => $id])->queryOne();
-        if ($fila === false) {
+        if (empty($fila)) {
             throw new NotFoundHttpException('Este género no existe.');
         }
         return $fila;
