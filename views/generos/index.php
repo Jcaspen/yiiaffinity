@@ -2,6 +2,8 @@
 use yii\helpers\Html;
 
 $this->title ='Géneros';
+$this->params['breadcrumbs'][]= $this->title;
+
 ?>
 <div class="row">
     <table class="table table-striped">

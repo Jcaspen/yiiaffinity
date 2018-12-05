@@ -21,6 +21,7 @@ class PeliculasController extends \yii\web\Controller
                            ORDER BY p.titulo')->queryAll();
         return $this->render('index', [
             'filas' => $filas,
+            //Esto es lo que recibira la vista index
         ]);
     }
 

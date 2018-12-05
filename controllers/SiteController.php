@@ -120,11 +120,12 @@ class SiteController extends Controller
      * Displays about page.
      *
      * @return string
+     * @param mixed $nombre
      */
-    public function actionAbout()
-    {
-        return $this->render('about');
-    }
+    // public function actionAbout()
+    // {
+    //     return $this->render('about');
+    // }
 
     public function actionSaluda($nombre = 'Manolo')
     {

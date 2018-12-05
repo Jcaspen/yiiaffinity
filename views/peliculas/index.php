@@ -1,5 +1,8 @@
 <?php
 use yii\helpers\Html;
+
+$this->params['breadcrumbs'][]= $this->title;
+$this->title='Películas';
 ?>
 <div class="row">
     <table class="table table-striped">
