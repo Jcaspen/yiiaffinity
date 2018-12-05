@@ -5,6 +5,7 @@ namespace app\controllers;
 use app\models\GenerosForm;
 use Yii;
 use yii\web\NotFoundHttpException;
+use yii\web\Response;
 
 /**
  * Definición del controlador Géneros.
@@ -54,6 +55,11 @@ class GenerosController extends \yii\web\Controller
         ]);
     }
 
+    /**
+     * Borra un género.
+     * @param  int      $id Id del género a borrar
+     * @return Response     Una redirección
+     */
     public function actionDelete($id)
     {
         if (Yii::$app->db

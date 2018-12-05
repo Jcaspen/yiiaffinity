@@ -8,6 +8,7 @@ class PeliculasForm extends Model
 {
     public $titulo;
     public $anyo;
+    public $sinopsis;
     public $duracion;
     public $genero_id;
 
@@ -18,6 +19,7 @@ class PeliculasForm extends Model
             [['anyo', 'duracion', 'genero_id'], 'trim'],
             [['anyo', 'duracion', 'genero_id'], 'number'],
             [['titulo'], 'string', 'max' => 255],
+            [['sinopsis'], 'trim'],
         ];
     }
 }
